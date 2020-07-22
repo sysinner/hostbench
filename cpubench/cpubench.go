@@ -34,32 +34,43 @@ func main() {
 
 	runtime.GOMAXPROCS(1)
 
-	cpuInfo, err := cpu.Info()
-	if err != nil {
-		log.Fatal(err)
-	}
+	var benchResult *CpuBenchItem
 
-	infos := []string{}
-	infos = append(infos, []string{
-		"Model", cpuInfo[0].ModelName,
-		"Arch", runtime.GOARCH,
-		"OS", runtime.GOOS,
-	}...)
+	if _, ok := hflag.ValueOK("bench-off"); !ok {
 
-	sec, score := CpuBench(CpuBenchBase2019)
+		cpuInfo, err := cpu.Info()
+		if err != nil {
+			log.Fatal(err)
+		}
 
-	infos = append(infos, []string{
-		"Time", fmt.Sprintf("%d s", sec/1e9),
-		"Score", fmt.Sprintf("%d", score),
-	}...)
+		infos := []string{}
+		infos = append(infos, []string{
+			"Model", cpuInfo[0].ModelName,
+			"Arch", runtime.GOARCH,
+			"OS", runtime.GOOS,
+		}...)
 
-	for i := 1; i < len(infos); i += 2 {
-		fmt.Printf("%20s  %s\n", infos[i-1], infos[i])
+		sec, score := CpuBench(CpuBenchBase2019)
+
+		infos = append(infos, []string{
+			"Time", fmt.Sprintf("%d s", sec/1e9),
+			"Score", fmt.Sprintf("%d", score),
+		}...)
+
+		for i := 1; i < len(infos); i += 2 {
+			fmt.Printf("%20s  %s\n", infos[i-1], infos[i])
+		}
+
+		benchResult = &CpuBenchItem{
+			ModelName: cpuInfo[0].ModelName,
+			Score:     score,
+			TestTime:  time.Now().Format("2006-01-02"),
+			Comment:   hflag.Value("comment").String(),
+			CpuInfo:   cpuInfo[0],
+		}
 	}
 
 	if v, ok := hflag.ValueOK("table-list"); ok {
-
-		comment := hflag.Value("comment").String()
 
 		var ls CpuBenchList
 		cfgName := v.String()
@@ -67,29 +78,21 @@ func main() {
 			cfgName = "cpubench.toml"
 		}
 		htoml.DecodeFromFile(&ls, cfgName)
-		hit := false
-		for i, v2 := range ls.Items {
-			if v2.ModelName == cpuInfo[0].ModelName {
-				hit = true
-				ls.Items[i] = &CpuBenchItem{
-					ModelName: cpuInfo[0].ModelName,
-					Score:     score,
-					TestTime:  time.Now().Format("2006-01-02"),
-					Comment:   comment,
-					CpuInfo:   cpuInfo[0],
+
+		if benchResult != nil {
+			hit := false
+			for i, v2 := range ls.Items {
+				if v2.ModelName == benchResult.ModelName {
+					hit = true
+					ls.Items[i] = benchResult
+					break
 				}
-				break
+			}
+			if !hit {
+				ls.Items = append(ls.Items, benchResult)
 			}
 		}
-		if !hit {
-			ls.Items = append(ls.Items, &CpuBenchItem{
-				ModelName: cpuInfo[0].ModelName,
-				Score:     score,
-				TestTime:  time.Now().Format("2006-01-02"),
-				Comment:   comment,
-				CpuInfo:   cpuInfo[0],
-			})
-		}
+
 		sort.Slice(ls.Items, func(i, j int) bool {
 			return strings.Compare(ls.Items[i].ModelName, ls.Items[j].ModelName) < 0
 		})
@@ -116,7 +119,18 @@ func main() {
 			})
 		}
 
-		fmt.Println(table.String())
+		tstr := strings.TrimSpace(table.String())
+		if n := strings.Index(tstr, "\n"); n > 0 {
+			tstr = tstr[n+1:]
+		}
+		if n := strings.LastIndex(tstr, "\n"); n > 0 {
+			tstr = tstr[:n]
+		}
+
+		tstr = strings.Replace(tstr, "+--", "|--", -1)
+		tstr = strings.Replace(tstr, "--+", "--|", -1)
+
+		fmt.Println(tstr)
 	}
 }
 
