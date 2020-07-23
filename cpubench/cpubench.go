@@ -94,7 +94,8 @@ func main() {
 		}
 
 		sort.Slice(ls.Items, func(i, j int) bool {
-			return strings.Compare(ls.Items[i].ModelName, ls.Items[j].ModelName) < 0
+			return ls.Items[i].Score > ls.Items[j].Score
+			// return strings.Compare(ls.Items[i].ModelName, ls.Items[j].ModelName) < 0
 		})
 
 		htoml.EncodeToFile(&ls, cfgName, nil)
