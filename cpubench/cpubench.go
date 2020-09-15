@@ -23,9 +23,9 @@ type CpuBenchList struct {
 }
 
 type CpuBenchItem struct {
+	Name      string       `toml:"name"`
 	ModelName string       `toml:"model_name"`
 	Score     int64        `toml:"score"`
-	Comment   string       `toml:"comment"`
 	TestTime  string       `toml:"test_time"`
 	CpuInfo   cpu.InfoStat `toml:"cpu_info"`
 }
@@ -62,10 +62,10 @@ func main() {
 		}
 
 		benchResult = &CpuBenchItem{
+			Name:      hflag.Value("name").String(),
 			ModelName: cpuInfo[0].ModelName,
 			Score:     score,
 			TestTime:  time.Now().Format("2006-01-02"),
-			Comment:   hflag.Value("comment").String(),
 			CpuInfo:   cpuInfo[0],
 		}
 	}
@@ -104,19 +104,21 @@ func main() {
 
 		table.Header = &simpletable.Header{
 			Cells: []*simpletable.Cell{
+				{Text: "NAME"},
+				{Text: "SCORE"},
 				{Text: "MODEL"},
 				{Text: "GHz"},
-				{Text: "SCORE"},
-				{Text: "COMMENT"},
+				{Text: "DATE"},
 			},
 		}
 
 		for _, v2 := range ls.Items {
 			table.Body.Cells = append(table.Body.Cells, []*simpletable.Cell{
+				{Text: v2.Name},
+				{Text: fmt.Sprintf("%d", v2.Score)},
 				{Text: v2.ModelName},
 				{Text: fmt.Sprintf("%.2f", v2.CpuInfo.Mhz/1000)},
-				{Text: fmt.Sprintf("%d", v2.Score)},
-				{Text: v2.Comment},
+				{Text: v2.TestTime},
 			})
 		}
 
