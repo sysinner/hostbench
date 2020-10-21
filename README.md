@@ -33,6 +33,7 @@ Partial test results (1x CPU core):
 | tencent-cloud-c3-c4m8-bj  | 2693  | Intel(R) Xeon(R) Gold 6146 CPU @ 3.20GHz       | 3.19 | 2020-08-07 |
 | ep-host-e5-2637           | 2536  | Intel(R) Xeon(R) CPU E5-2637 v2 @ 3.50GHz      | 3.80 | 2020-08-01 |
 | aliyun-hfc6-c2m4-hz       | 2431  | Intel(R) Xeon(R) Platinum 8269CY CPU @ 2.50GHz | 3.10 | 2020-08-07 |
+| vultr-hf-c1m1-frankfurt   | 2324  | Intel Core Processor (Skylake, IBRS)           | 3.79 | 2020-10-21 |
 | huawei-cloud-hecs-c4m8-bj | 2265  | Intel(R) Xeon(R) Gold 6278C CPU @ 2.60GHz      | 2.60 | 2020-09-15 |
 | ucloud-kj-o-bj            | 2200  | Intel Xeon Processor (Cascadelake)             | 2.29 | 2020-07-08 |
 | aliyun-c6e-c2m4-hz        | 2174  | Intel(R) Xeon(R) Platinum 8269CY CPU @ 2.50GHz | 2.50 | 2020-08-07 |
