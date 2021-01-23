@@ -11,7 +11,7 @@ import (
 	"github.com/alexeyco/simpletable"
 	"github.com/hooto/hflag4g/hflag"
 	"github.com/hooto/htoml4g/htoml"
-	"github.com/shirou/gopsutil/cpu"
+	"github.com/shirou/gopsutil/v3/cpu"
 )
 
 var (
