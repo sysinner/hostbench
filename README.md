@@ -27,7 +27,6 @@ Partial test results (1x CPU core):
 
 | NAME                      | SCORE | MODEL                                          | GHz  | Arch  | DATE       |
 |---------------------------|-------|------------------------------------------------|------|-------|------------|
-| macbook-air-2020          | 5986  | Apple M1                                       | 2.40 | arm64 | 2021-03-19 |
 | aliyun-ecs.g7a.large-c2m8 | 5809  | AMD EPYC 7T83 64-Core Processor                | 2.55 | x64   | 2022-11-04 |
 | tencent-cloud-sa3-c2m4    | 5788  | AMD EPYC 7K83 64-Core Processor                | 2.55 | x64   | 2022-11-04 |
 | aliyun-ecs.g7.large-c2m8  | 5740  | Intel(R) Xeon(R) Platinum 8369B CPU @ 2.70GHz  | 2.70 | x64   | 2022-11-04 |
