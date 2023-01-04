@@ -31,9 +31,10 @@ Partial test results (1x CPU core):
 | tencent-cloud-sa3-c2m4    | 5788  | AMD EPYC 7K83 64-Core Processor                | 2.55 | x64   | 2022-11-04 |
 | aliyun-ecs.g7.large-c2m8  | 5740  | Intel(R) Xeon(R) Platinum 8369B CPU @ 2.70GHz  | 2.70 | x64   | 2022-11-04 |
 | aliyun-ecs.c7.large-c2m8  | 5739  | Intel(R) Xeon(R) Platinum 8369B CPU @ 2.70GHz  | 2.70 | x64   | 2022-11-04 |
+| aliyun-ecs.g8y.large-c2m8 | 5624  | Yitian 710                                     | 2.75 | arm64 | 2023-01-04 |
 | tencent-cloud-s6-c2m2     | 5415  | Intel(R) Xeon(R) Platinum 8374C CPU @ 2.70GHz  | 2.70 | x64   | 2022-11-04 |
 | tencent-cloud-sa2-c1m2-bj | 4934  | AMD EPYC 7K62 48-Core Processor                | 2.60 | x64   | 2020-07-22 |
-| aliyun-ecs.g7r.large      | 4006  | Ampere(R) Altra(R) CPU @ 2.80GHz               | 2.80 | amd64 | 2022-11-04 |
+| aliyun-ecs.g7r.large      | 4006  | Ampere(R) Altra(R) CPU @ 2.80GHz               | 2.80 | arm64 | 2022-11-04 |
 | macbook-pro-2021          | 3697  | Apple M1                                       | 2.40 | arm64 | 2022-11-04 |
 | workstation-n2            | 2913  | Intel(R) Core(TM) i7-7700 CPU @ 3.60GHz        | 4.20 | x64   | 2020-07-24 |
 | lenovo-thinkbook-14       | 2815  | Intel(R) Core(TM) i5-10210U CPU @ 1.60GHz      | 4.20 | x64   | 2020-07-08 |
