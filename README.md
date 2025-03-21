@@ -34,6 +34,8 @@ Partial test results (1x CPU core):
 | aliyun-ecs.c7.large-c2m8  | 5739  | Intel(R) Xeon(R) Platinum 8369B CPU @ 2.70GHz  | 2.70 | x64   | 2022-11-04 |
 | aliyun-ecs.g8y.large-c2m8 | 5624  | Yitian 710                                     | 2.75 | arm64 | 2023-01-04 |
 | tencent-cloud-s6-c2m2     | 5415  | Intel(R) Xeon(R) Platinum 8374C CPU @ 2.70GHz  | 2.70 | x64   | 2022-11-04 |
+| linode-2g-fremont         | 5011  | AMD EPYC 7713 64-Core Processor                | 2.00 | x64   | 2024-04-08 |
+| digitalocean-gpu-h100x1   | 4978  | Intel(R) Xeon(R) Platinum 8468                 | 2.10 | x64   | 2025-03-20 |
 | tencent-cloud-sa2-c1m2-bj | 4934  | AMD EPYC 7K62 48-Core Processor                | 2.60 | x64   | 2020-07-22 |
 | aliyun-ecs.g7r.large      | 4006  | Ampere(R) Altra(R) CPU @ 2.80GHz               | 2.80 | arm64 | 2022-11-04 |
 | macbook-pro-2021          | 3697  | Apple M1                                       | 2.40 | arm64 | 2022-11-04 |

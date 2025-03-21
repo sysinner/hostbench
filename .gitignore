@@ -1,3 +1,4 @@
 bin/
 *.toml
 batch-*
+go.sum

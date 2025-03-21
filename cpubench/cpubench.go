@@ -70,14 +70,17 @@ func main() {
 		}
 	}
 
-	if v, ok := hflag.ValueOK("table-list"); ok {
+	var (
+		ls      CpuBenchList
+		cfgName = "cpubench.toml"
+	)
 
-		var ls CpuBenchList
-		cfgName := v.String()
-		if cfgName == "" {
-			cfgName = "cpubench.toml"
-		}
-		htoml.DecodeFromFile(&ls, cfgName)
+	if v, ok := hflag.ValueOK("table-list"); ok && strings.HasSuffix(v.String(), ".toml") {
+		cfgName = v.String()
+	}
+
+	{
+		htoml.DecodeFromFile(cfgName, &ls)
 
 		if benchResult != nil {
 			hit := false
@@ -138,8 +141,9 @@ func main() {
 }
 
 // refer: J.Marchin PI
-//  PI = [16/5 - 16/(3*53) + 16/(5*55) - 16/(7*57) + ......]
-//  PI -= [4/239 - 4/(3*2393) + 4/(5*2395) - 4/(7*2397) + ......]
+//
+//	PI = [16/5 - 16/(3*53) + 16/(5*55) - 16/(7*57) + ......]
+//	PI -= [4/239 - 4/(3*2393) + 4/(5*2395) - 4/(7*2397) + ......]
 func CpuBench(base [2]int64) (int64, int64) {
 
 	t := time.Now()
