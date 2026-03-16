@@ -27,6 +27,7 @@ Partial test results (1x CPU core):
 
 | NAME                      | SCORE | MODEL                                          | GHz  | Arch  | DATE       |
 |---------------------------|-------|------------------------------------------------|------|-------|------------|
+| macbook-pro-2026          | 8610  | Apple M5 Pro (6+12)                            | 4.61 | arm64 | 2026-03-16 |
 | workstation-n3            | 8060  | AMD Ryzen 5 5600G                              | 3.90 | x64   | 2023-06-21 |
 | aliyun-ecs.g7a.large-c2m8 | 5809  | AMD EPYC 7T83 64-Core Processor                | 2.55 | x64   | 2022-11-04 |
 | tencent-cloud-sa3-c2m4    | 5788  | AMD EPYC 7K83 64-Core Processor                | 2.55 | x64   | 2022-11-04 |
@@ -38,6 +39,7 @@ Partial test results (1x CPU core):
 | digitalocean-gpu-h100x1   | 4978  | Intel(R) Xeon(R) Platinum 8468                 | 2.10 | x64   | 2025-03-20 |
 | tencent-cloud-sa2-c1m2-bj | 4934  | AMD EPYC 7K62 48-Core Processor                | 2.60 | x64   | 2020-07-22 |
 | aliyun-ecs.g7r.large      | 4006  | Ampere(R) Altra(R) CPU @ 2.80GHz               | 2.80 | arm64 | 2022-11-04 |
+| Kunpeng-920               | 3805  | HUAWEI Kunpeng 920 5250                        | 2.60 | arm64 | 2025-05-20 |
 | macbook-pro-2021          | 3697  | Apple M1                                       | 2.40 | arm64 | 2022-11-04 |
 | workstation-n2            | 2913  | Intel(R) Core(TM) i7-7700 CPU @ 3.60GHz        | 4.20 | x64   | 2020-07-24 |
 | lenovo-thinkbook-14       | 2815  | Intel(R) Core(TM) i5-10210U CPU @ 1.60GHz      | 4.20 | x64   | 2020-07-08 |
